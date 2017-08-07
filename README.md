@@ -29,7 +29,14 @@ Now open a new terminal window:
 - Windows: Double click `Docker Quickstart Terminal` on your desktop.
 - Linux: Press `Ctrl+Alt+T` to launch a terminal window.
 
-Now enter the following command to download the Docker image files we will be using. This should take several minutes.
+
+Now enter the following command to download the Docker image files for the Audio Labeler application. This should take several minutes.
+
+```
+docker pull hipstas/audio-labeler
+```
+
+In a new terminal window, download the Docker image files for the Audio ML Lab container.
 
 ```
 docker pull hipstas/audio-ml-lab
@@ -39,9 +46,27 @@ Docker makes it possible to run a virtual copy of the Linux operating system wit
 
 For a more details on how Docker works, see this [overview](https://docs.docker.com/engine/docker-overview/).
 
-When the Docker download is complete, enter the following command to run the container. This will create a new directory called `sharedfolder` on your desktop.
+## Using Audio Labeler to generate training data
 
-Enter the following commands to launch the Audio ML Lab Docker container, then launch a terminal session in the container.
+
+
+```
+mkdir -p ~/Desktop/audio_labeler/media/
+cd ~/Desktop/audio_labeler/media/
+
+wget http://www.stephenmclaughlin.net/HILT/audio_corpora/NPR_Fresh_Air_diarized.zip
+!unzip NPR_Fresh_Air_diarized.zip
+
+docker run -it --name audio_labeler -p 8000:8000 -v ~/Desktop/audio_labeler:/home/audio_labeler hipstas/audio-labeler bash
+```
+
+Open your browser and enter `localhost:8000` in the URL bar and start labeling.
+
+
+
+## Training and classifying.
+
+Now enter the following command to run the Audio ML container. This will create a new directory called `sharedfolder` on your desktop.
 
 ```
 docker run -d -ti --name audio_ml_lab -p 8887:8887 -v ~/Desktop/sharedfolder/:/sharedfolder/ hipstas/audio-ml-lab
@@ -62,4 +87,4 @@ Enter the following command to download the Jupyter notebook we'll be using.
 wget https://raw.githubusercontent.com/hipstas/shaping-humanities-data/master/01_Fresh_Air_Speaker_ID.ipynb?raw=true -O 01_Fresh_Air_Speaker_ID.ipynb
 ```
 
-Now open your browser and enter `localhost:8887` or `127.0.0.1:8887` in the URL window, then click `01_Fresh_Air_Speaker_ID.ipynb` to open the notebook. We'll continue in Jupyter for the rest of this workshop.
+Now open your browser and enter `localhost:8887` or `127.0.0.1:8887` in the URL bar, then click `01_Fresh_Air_Speaker_ID.ipynb` to open the notebook. We'll continue in Jupyter for the rest of this workshop.
