@@ -48,14 +48,13 @@ For a more details on how Docker works, see this [overview](https://docs.docker.
 
 ## Using Audio Labeler to generate training data
 
-
+Download training dataset and launch [Audio Labeler](https://github.com/hipstas/audio-labeler) application.
 
 ```
 mkdir -p ~/Desktop/audio_labeler/media/
 cd ~/Desktop/audio_labeler/media/
-
 wget http://www.stephenmclaughlin.net/HILT/audio_corpora/NPR_Fresh_Air_diarized.zip
-!unzip NPR_Fresh_Air_diarized.zip
+unzip NPR_Fresh_Air_diarized.zip
 
 docker run -it --name audio_labeler -p 8000:8000 -v ~/Desktop/audio_labeler:/home/audio_labeler hipstas/audio-labeler bash
 ```
