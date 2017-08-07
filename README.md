@@ -19,13 +19,17 @@
 
 #### Up and running with Docker
 
-Open a new terminal window:
+First, click [here](https://github.com/hipstas/shaping-humanities-data/blob/master/audio/Fresh_Air_2017-07-31.mp3?raw=true) to download a single episode of the NPR radio show *Fresh Air*.
+
+Open `Fresh_Air_2017-07-31.mp3` using the application `Sonic Visualiser`. When the file is open, press `g` to display a spectrogram representation of the audio.
+
+Now open a new terminal window:
 
 - macOS: Open the application `Terminal`, located in `/Applications/Utilities`.
 - Windows: Double click `Docker Quickstart Terminal` on your desktop.
 - Linux: Press `Ctrl+Alt+T` to launch a terminal window.
 
-Now enter the following command to download the image files we'll be using. This should take several minutes.
+Now enter the following command to download the Docker image files we will be using. This should take several minutes.
 
 ```
 docker pull hipstas/audio-ml-lab
@@ -35,7 +39,7 @@ Docker makes it possible to run a virtual copy of the Linux operating system wit
 
 For a more details on how Docker works, see this [overview](https://docs.docker.com/engine/docker-overview/).
 
-When the download is complete, enter the following command to run the container. This will create a new directory called `sharedfolder` on your desktop.
+When the Docker download is complete, enter the following command to run the container. This will create a new directory called `sharedfolder` on your desktop.
 
 Enter the following commands to launch the Audio ML Lab Docker container, then launch a terminal session in the container.
 
@@ -58,4 +62,4 @@ Enter the following command to download the Jupyter notebook we'll be using.
 wget https://raw.githubusercontent.com/hipstas/shaping-humanities-data/master/01_Fresh_Air_Speaker_ID.ipynb?raw=true -O 01_Fresh_Air_Speaker_ID.ipynb
 ```
 
-Now open your browser and enter `localhost:8887` or `127.0.0.1:8887` in the URL window, then click `01_Fresh_Air_Speaker_ID.ipynb` to open the notebook.
+Now open your browser and enter `localhost:8887` or `127.0.0.1:8887` in the URL window, then click `01_Fresh_Air_Speaker_ID.ipynb` to open the notebook. We'll continue in Jupyter for the rest of this workshop.
