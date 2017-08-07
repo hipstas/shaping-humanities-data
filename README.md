@@ -1,12 +1,24 @@
-# shaping-humanities-data
+# Humanities Research with Sound: Introduction to Audio Machine Learning
 
+### Stephen Reid McLauglin & Tanya Clement
 
+Download and launch Audio ML Lab Docker container, then launch a terminal session in the container.
 
-
-#U Volume
+```
 docker rm -f audio_ml_lab
 docker pull hipstas/audio-ml-lab
-docker run -it --name audio_ml_lab -p 8887:8887 -v /Volumes/U/:/sharedfolder/ hipstas/audio-ml-lab
+docker run -d -ti --name audio_ml_lab -p 8887:8887 -v ~/Desktop/sharedfolder/:/sharedfolder/ hipstas/audio-ml-lab
+docker exec -ti audio_ml_lab /bin/bash
+```
+
+Download the Jupyter notebook.
+
+```
+wget https://raw.githubusercontent.com/hipstas/shaping-humanities-data/master/01_Fresh_Air_Speaker_ID.ipynb?raw=true -O 01_Fresh_Air_Speaker_ID.ipynb
+```
+
+Open your browser and enter `localhost:8887` or `127.0.0.1:8887` in the URL window, then click `01_Fresh_Air_Speaker_ID.ipynb` to open the notebook.
+
 
 
 
